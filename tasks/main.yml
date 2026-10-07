@@ -1,0 +1,19 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for testRole
+ - name: Pinging from an Ansible Playbook
+   ansible.builtin.ping:
+
+ - name: Install apache2 on server
+   ansible.builtin.apt:
+    name: apache2
+    state: present
+
+ - name: Copy index file on server with owner and permissions
+   ansible.builtin.copy:
+    src: testRole/files/index.html
+    dest: /var/www/html
+    owner: root
+    group: root
+    mode: "0644"
+
